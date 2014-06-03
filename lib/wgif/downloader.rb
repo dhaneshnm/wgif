@@ -22,9 +22,10 @@ module WGif
     end
 
     def video_id(youtube_url)
-      uri = URI(youtube_url)
-      params = CGI.parse(uri.query)
-      params['v'].first
+      youtube_url.split('/').last
+      # uri = URI(youtube_url)
+      # params = CGI.parse(uri.query)
+      # params['v'].first
     rescue
       raise WGif::InvalidUrlException
     end
